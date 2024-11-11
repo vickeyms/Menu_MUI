@@ -1,25 +1,26 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AppLayout from './Layout/Layout'; // Importing the Layout component
-
-// Sample Components for the pages
-const Home = () => <h1>Home Page</h1>;
-const Profile = () => <h1>Profile Page</h1>;
-const Settings = () => <h1>Settings Page</h1>;
+import Home from './Pages/Home';
+import View from './Pages/View';
+import Edit from './Pages/Edit';
+import Settings from './Pages/Settings';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Main layout routes */}
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Home />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<Home />} />
+        <Route path="profile/view" element={<View />} />
+        <Route path="profile/edit" element={<Edit />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+    </Routes>
+
+
+
+
   );
 }
 
